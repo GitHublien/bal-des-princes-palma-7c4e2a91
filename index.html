@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="robots" content="noindex, nofollow">
+<title>Bal des Princes — Palma de Majorque</title>
+<style>
+  :root{
+    --noir:#0c0c10;
+    --noir2:#14141b;
+    --carte:#1a1a23;
+    --bord:#2c2c39;
+    --or:#c9a227;
+    --or-clair:#e8cd7a;
+    --texte:#ece9e2;
+    --gris:#9a978f;
+    --alerte:#e05a3d;
+    --vert:#5fa87a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--noir);
+    color:var(--texte);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px}
+
+  /* ---------- En-tête ---------- */
+  header{
+    text-align:center;
+    padding:54px 18px 40px;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(201,162,39,.16), transparent 62%),
+      linear-gradient(180deg,#101016,var(--noir));
+    border-bottom:1px solid var(--bord);
+  }
+  .surtitre{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--or);margin-bottom:16px;font-weight:600;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:400;font-size:clamp(30px,8vw,46px);
+    line-height:1.15;letter-spacing:.01em;
+  }
+  h1 em{font-style:italic;color:var(--or-clair)}
+  .dates{
+    margin-top:18px;color:var(--gris);font-size:14px;
+    letter-spacing:.08em;text-transform:uppercase;
+  }
+  .filet{width:56px;height:1px;background:var(--or);margin:26px auto 0;opacity:.7}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:44px}
+  h2{
+    font-family:Georgia,serif;font-weight:400;font-size:22px;
+    color:var(--or-clair);margin-bottom:6px;
+  }
+  .soustitre{color:var(--gris);font-size:13px;margin-bottom:20px}
+
+  /* ---------- Alerte ---------- */
+  .alerte{
+    background:rgba(224,90,61,.10);
+    border:1px solid rgba(224,90,61,.42);
+    border-left:3px solid var(--alerte);
+    border-radius:10px;padding:18px 20px;margin-top:28px;
+  }
+  .alerte .titre{
+    color:var(--alerte);font-weight:700;font-size:13px;
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
+  }
+  .alerte p{font-size:15px}
+  .alerte p + p{margin-top:10px}
+
+  /* ---------- Cartes vol ---------- */
+  .vol{
+    background:var(--carte);border:1px solid var(--bord);
+    border-radius:14px;overflow:hidden;margin-bottom:18px;
+  }
+  .vol-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 20px;background:rgba(255,255,255,.03);
+    border-bottom:1px solid var(--bord);
+  }
+  .vol-head .quoi{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--or);font-weight:700;
+  }
+  .vol-head .cie{font-size:13px;color:var(--gris)}
+  .trajet{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 20px 20px;gap:10px;
+  }
+  .ville{text-align:center;flex:1}
+  .code{
+    font-family:Georgia,serif;font-size:clamp(28px,9vw,40px);
+    line-height:1;letter-spacing:.02em;
+  }
+  .nom{font-size:12px;color:var(--gris);margin-top:6px}
+  .heure{
+    font-size:clamp(20px,6vw,26px);margin-top:10px;
+    font-variant-numeric:tabular-nums;color:var(--or-clair);
+  }
+  .avion{color:var(--or);font-size:20px;opacity:.8;flex:0 0 auto}
+  .infos{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--bord);border-top:1px solid var(--bord);
+  }
+  .info{background:var(--carte);padding:14px 16px}
+  .info .k{
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gris);margin-bottom:4px;
+  }
+  .info .v{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+  .info .v.or{color:var(--or-clair)}
+
+  /* ---------- Horaires ---------- */
+  .timeline{
+    background:var(--noir2);border:1px solid var(--bord);
+    border-radius:14px;padding:8px 20px;
+  }
+  .etape{
+    display:flex;gap:16px;padding:13px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .etape:last-child{border-bottom:none}
+  .etape .h{
+    flex:0 0 58px;font-variant-numeric:tabular-nums;
+    color:var(--or-clair);font-weight:600;font-size:15px;
+  }
+  .etape .t{flex:1;font-size:15px}
+  .etape .t small{display:block;color:var(--gris);font-size:13px;margin-top:2px}
+  .etape.fort .t{font-weight:600}
+
+  /* ---------- Répertoire ---------- */
+  ol.repertoire{list-style:none;counter-reset:c}
+  ol.repertoire li{
+    counter-increment:c;display:flex;gap:16px;align-items:baseline;
+    padding:15px 20px;background:var(--carte);
+    border:1px solid var(--bord);border-radius:12px;margin-bottom:9px;
+  }
+  ol.repertoire li::before{
+    content:counter(c,decimal-leading-zero);
+    font-family:Georgia,serif;font-size:15px;color:var(--or);
+    flex:0 0 auto;opacity:.85;
+  }
+  ol.repertoire .titre{font-size:17px}
+  ol.repertoire .oeuvre{color:var(--gris);font-size:13px;margin-top:2px}
+
+  /* ---------- Documents ---------- */
+  .doc{
+    display:block;background:var(--carte);border:1px solid var(--bord);
+    border-radius:12px;padding:16px 20px;margin-bottom:9px;
+    color:var(--texte);text-decoration:none;
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+  }
+  .doc:hover{border-color:var(--or);background:#1f1f29}
+  .doc .n{font-size:16px}
+  .doc .d{color:var(--gris);font-size:13px;margin-top:2px}
+  .doc .fl{color:var(--or);font-size:20px;flex:0 0 auto}
+
+  /* ---------- Images de billets ---------- */
+  figure{margin:18px 0}
+  figure img{
+    width:100%;height:auto;display:block;
+    border-radius:12px;border:1px solid var(--bord);background:#fff;
+  }
+  figcaption{color:var(--gris);font-size:13px;margin-top:9px;text-align:center}
+
+  /* ---------- Contacts ---------- */
+  .contact{
+    background:var(--carte);border:1px solid var(--bord);
+    border-radius:12px;padding:18px 20px;
+  }
+  .contact .l{color:var(--gris);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .contact .v{font-size:17px;margin-top:4px}
+  .contact a{color:var(--or-clair);text-decoration:none;border-bottom:1px solid rgba(232,205,122,.3)}
+  .contact + .contact{margin-top:9px}
+
+  .note{color:var(--gris);font-size:14px;margin-top:14px}
+  .note strong{color:var(--texte)}
+
+  footer{
+    text-align:center;color:#5a5852;font-size:12px;
+    margin-top:56px;padding-top:26px;border-top:1px solid var(--bord);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="surtitre">Palma de Majorque</div>
+  <h1>Le Bal des <em>Princes</em></h1>
+  <div class="dates">Samedi 29 — Dimanche 30 août 2026</div>
+  <div class="filet"></div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= ALERTE PARKING ================= -->
+  <div class="alerte">
+    <div class="titre">À régler avant de partir</div>
+    <p>Le <strong>parking P3</strong> est réservé jusqu'au <strong>30/08 à 01 h 45</strong>. Or l'avion du retour se pose à Marseille le <strong>30 à 18 h 30</strong> : la sortie se fera environ 17 heures après la fin de la réservation.</p>
+    <p>Le voucher ne tolère que 2 heures de dépassement. Au-delà, une journée entière est facturée au tarif comptoir. <strong>Prolonger la réservation en ligne</strong> (commande n° 301771450 - 11655518) coûte nettement moins cher que de la régler à la borne de sortie.</p>
+  </div>
+
+  <!-- ================= LES VOLS ================= -->
+  <section>
+    <h2>Les vols</h2>
+    <div class="soustitre">Aller Volotea, retour Ryanair — départ et retour à Marseille</div>
+
+    <div class="vol">
+      <div class="vol-head">
+        <span class="quoi">Aller — samedi 29 août</span>
+        <span class="cie">Volotea V72474</span>
+      </div>
+      <div class="trajet">
+        <div class="ville">
+          <div class="code">MRS</div>
+          <div class="nom">Marseille · Terminal 1</div>
+          <div class="heure">11:40</div>
+        </div>
+        <div class="avion">✈</div>
+        <div class="ville">
+          <div class="code">PMI</div>
+          <div class="nom">Palma de Majorque</div>
+          <div class="heure">12:55</div>
+        </div>
+      </div>
+      <div class="infos">
+        <div class="info"><div class="k">Siège</div><div class="v or">13A</div></div>
+        <div class="info"><div class="k">Confirmation</div><div class="v or">DBIMHD</div></div>
+        <div class="info"><div class="k">Embarquement</div><div class="v">11:05</div></div>
+        <div class="info"><div class="k">Séquence</div><div class="v">0115</div></div>
+      </div>
+    </div>
+
+    <div class="vol">
+      <div class="vol-head">
+        <span class="quoi">Retour — dimanche 30 août</span>
+        <span class="cie">Ryanair FR5198</span>
+      </div>
+      <div class="trajet">
+        <div class="ville">
+          <div class="code">PMI</div>
+          <div class="nom">Palma de Majorque</div>
+          <div class="heure">17:10</div>
+        </div>
+        <div class="avion">✈</div>
+        <div class="ville">
+          <div class="code">MRS</div>
+          <div class="nom">Marseille</div>
+          <div class="heure">18:30</div>
+        </div>
+      </div>
+      <div class="infos">
+        <div class="info"><div class="k">Réservation</div><div class="v or">CY2MTE</div></div>
+        <div class="info"><div class="k">Compte myRyanair</div><div class="v" style="font-size:13px;word-break:break-all">prdircom@yahoo.com</div></div>
+        <div class="info"><div class="k">Enregistrement</div><div class="v">dès sam. 17 h</div></div>
+      </div>
+    </div>
+
+    <p class="note"><strong>Bagages :</strong> le billet Volotea inclut le bagage cabine 10 kg (55 × 40 × 25 cm) <em>en plus</em> du petit sac (40 × 30 × 20 cm). Les liquides restent limités à 100 ml, et tout appareil à batterie lithium voyage en cabine.</p>
+    <p class="note"><strong>Enregistrement Ryanair :</strong> il se fait avec l'adresse <em>prdircom@yahoo.com</em> et la référence <em>CY2MTE</em>, samedi à partir de 17 h. À faire depuis Palma, la carte d'embarquement arrive ensuite dans l'application.</p>
+  </section>
+
+  <!-- ================= DÉROULÉ ================= -->
+  <section>
+    <h2>Le déroulé</h2>
+    <div class="soustitre">Samedi 29 août</div>
+    <div class="timeline">
+      <div class="etape"><div class="h">09:40</div><div class="t">Ouverture du comptoir d'enregistrement<small>Aéroport Marseille Provence, Terminal 1</small></div></div>
+      <div class="etape fort"><div class="h">10:15</div><div class="t">Entrée au parking P3<small>Scanner le QR code sur la borne, sans appuyer sur le bouton « ticket ». Le parking peut afficher COMPLET SAUF RESA : l'accès reste ouvert.</small></div></div>
+      <div class="etape"><div class="h">11:05</div><div class="t">Fermeture du comptoir · début de l'embarquement</div></div>
+      <div class="etape"><div class="h">11:20</div><div class="t">Fin de l'embarquement</div></div>
+      <div class="etape fort"><div class="h">11:40</div><div class="t">Décollage — Marseille</div></div>
+      <div class="etape fort"><div class="h">12:55</div><div class="t">Arrivée à Palma de Majorque<small>Georges organise le transfert depuis l'aéroport, confirmé la veille ou l'avant-veille.</small></div></div>
+      <div class="etape"><div class="h">Soir</div><div class="t">Le Bal des Princes<small>Smoking. Pas de costume fourni sur place.</small></div></div>
+    </div>
+
+    <div class="soustitre" style="margin-top:24px">Dimanche 30 août</div>
+    <div class="timeline">
+      <div class="etape"><div class="h">Matin</div><div class="t">Journée libre à Palma<small>Pas de transfert retour organisé : plus de baby-sitter côté Georges et Delia, l'un des deux reste avec les enfants.</small></div></div>
+      <div class="etape fort"><div class="h">17:10</div><div class="t">Décollage — Palma de Majorque</div></div>
+      <div class="etape fort"><div class="h">18:30</div><div class="t">Arrivée à Marseille<small>Puis récupération de la voiture au parking P3.</small></div></div>
+    </div>
+  </section>
+
+  <!-- ================= RÉPERTOIRE ================= -->
+  <section>
+    <h2>Le répertoire</h2>
+    <div class="soustitre">Cinq titres, transmis par Georges</div>
+    <ol class="repertoire">
+      <li><div><div class="titre">Largo al factotum</div><div class="oeuvre">Le Barbier de Séville — Rossini</div></div></li>
+      <li><div><div class="titre">Votre toast, je peux vous le rendre</div><div class="oeuvre">Air du Toréador, Carmen — Bizet</div></div></li>
+      <li><div><div class="titre">Le Temps des Cathédrales</div><div class="oeuvre">Notre-Dame de Paris — Cocciante / Plamondon</div></div></li>
+      <li><div><div class="titre">Parla più piano</div><div class="oeuvre">Le Parrain — Nino Rota</div></div></li>
+      <li><div><div class="titre">L'Hymne à l'amour</div><div class="oeuvre">Édith Piaf / Marguerite Monnot</div></div></li>
+    </ol>
+    <p class="note">Les bandes correspondantes sont sur la clé USB, dans le dossier <strong>Bal des Princes — Palma</strong>.</p>
+  </section>
+
+  <!-- ================= DOCUMENTS ================= -->
+  <section>
+    <h2>Les documents</h2>
+    <div class="soustitre">À garder accessibles hors ligne le jour même</div>
+
+    <a class="doc" href="docs/billet-aller-volotea.pdf" download>
+      <div><div class="n">Carte d'embarquement Volotea</div><div class="d">Aller MRS → PMI, siège 13A · PDF</div></div>
+      <div class="fl">↓</div>
+    </a>
+    <a class="doc" href="docs/parking-p3-marseille.pdf" download>
+      <div><div class="n">Réservation parking P3</div><div class="d">QR code d'entrée · 13,60 € · PDF</div></div>
+      <div class="fl">↓</div>
+    </a>
+
+    <figure>
+      <img src="docs/carte-embarquement-aller-1.png" alt="Carte d'embarquement Volotea, vol V72474 Marseille vers Palma de Majorque, siège 13A">
+      <figcaption>Carte d'embarquement — le QR code se scanne directement depuis cette page.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="docs/parking-p3-1.png" alt="Voucher du parking P3 de l'aéroport Marseille Provence avec les QR codes d'entrée">
+      <figcaption>Parking P3 — présenter le QR code immobile, à 5 ou 10 cm du lecteur.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= CONTACTS ================= -->
+  <section>
+    <h2>Les repères</h2>
+    <div class="soustitre">Ce qui reste à confirmer sur place</div>
+    <div class="contact">
+      <div class="l">Organisateur</div>
+      <div class="v">Georges — transfert aéroport et nom de l'hôtel communiqués un à deux jours avant.</div>
+    </div>
+    <div class="contact">
+      <div class="l">Parking</div>
+      <div class="v">P3 · commande n° 301771450 - 11655518 · assistance 24 h/24 à l'interphone des bornes.</div>
+    </div>
+    <div class="contact">
+      <div class="l">Compte Ryanair</div>
+      <div class="v"><a href="https://www.ryanair.com/fr/fr/check-in">Enregistrement en ligne</a> — réservation CY2MTE, adresse prdircom@yahoo.com.</div>
+    </div>
+  </section>
+
+  <footer>
+    Page privée · Bal des Princes, Palma de Majorque · août 2026
+  </footer>
+
+</div>
+</body>
+</html>
